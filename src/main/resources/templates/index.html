@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script th:src="@{/js/index.js}"></script>
+        <link rel="stylesheet" th:href="@{/css/index.css}" />
+        <title>PAGINA PRINCIPAL</title>
+    </head>
+    <body>
+        <h1>MINHA PRIMEIRA PAGINA</h1>
+        <button onclick="ola()">Ola</button>
+        <img th:src="@{/img/logo.png}" alt="">
+        <ul>
+            <li><a th:href="@{/pagina1}">PAGINA 1</a></li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form th:action="@{/calc}" method="post" th:object="${calc}">
+        N1: <input type="number" th:field="*{num1}"/><br/>
+        N2: <input type="number"  th:field="*{num2}"/><br/>
+        <input type="submit" value="Somar"/><br/>
+    </form>
+    <div th:if="${res != null}">
+        <h2 th:text="${res}"></h2>
+    </div>
+    <a th:href="@{/}">Voltar</a>
+</body>
+</html>
