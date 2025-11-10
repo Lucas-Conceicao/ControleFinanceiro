@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Receita</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Registrar Receita</h1>
+    </header>
+
+    <main>
+        <h2>Nova Receita</h2>
+
+        <form th:action="@{/receitas}" method="post" th:object="${receita}">
+            <label>Data:</label>
+            <input type="date" th:field="*{data}" />
+
+            <label>Descrição:</label>
+            <input type="text" th:field="*{descricao}" placeholder="Ex: Salário" />
+
+            <label>Valor (R$):</label>
+            <input type="number" step="0.01" th:field="*{valor}" placeholder="Ex: 5000.00" />
+
+            <input type="submit" value="Registrar" />
+        </form>
+
+        <div th:if="${mensagem != null}">
+            <h3 th:text="${mensagem}" style="color: #28a745;"></h3>
+        </div>
+
+        <div class="cta-container" style="margin-top: 40px;">
+            <a th:href="@{/}" class="cta-button cta-extrato">Voltar ao início</a>
+        </div>
+
+    </main>
+
+</body>
+</html>

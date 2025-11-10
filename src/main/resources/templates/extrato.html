@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Extrato</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Extrato Financeiro</h1>
+    </header>
+
+    <main>
+
+        <div th:if="${extrato.historicoGeral.isEmpty()}">
+            <p>Nenhuma transação registrada.</p>
+        </div>
+
+        <div th:unless="${extrato.historicoGeral.isEmpty()}">
+            <h2>Histórico</h2>
+            <ul>
+                <li th:each="t : ${extrato.historicoGeral}"
+                    th:class="${t instanceof T(bt.com.lucas.ControleFinanceiro.model.Receita) ? 'receita' : 'despesa'}">
+                    
+                    <span th:text="${#dates.format(t.data, 'dd/MM/yyyy')}"></span> —
+                    <span th:text="${t.descricao}"></span>:
+                    <span th:text="${#numbers.formatCurrency(t.valor)}"></span>
+                </li>
+            </ul>
+            
+            <hr/>
+
+            <h2>Resumo</h2>
+
+            <p>
+                <strong>Total Receitas:</strong>
+                <span th:text="${#numbers.formatCurrency(extrato.totalReceitas)}" class="receita"></span>
+            </p>
+
+            <p>
+                <strong>Total Despesas:</strong>
+                <span th:text="${#numbers.formatCurrency(extrato.totalDespesas)}" class="despesa"></span>
+            </p>
+
+            <hr/>
+
+            <h2>Saldo Final</h2>
+            <p>
+                <span th:text="${#numbers.formatCurrency(extrato.saldoFinal)}"></span>
+            </p>
+        </div>
+
+        <div class="cta-container" style="margin-top: 40px;">
+            <a th:href="@{/}" class="cta-button cta-extrato">Voltar ao início</a>
+        </div>
+
+    </main>
+
+</body>
+</html>

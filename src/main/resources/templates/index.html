@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script th:src="@{/js/index.js}"></script>
-        <link rel="stylesheet" th:href="@{/css/index.css}" />
-        <title>PAGINA PRINCIPAL</title>
-    </head>
-    <body>
-        <h1>MINHA PRIMEIRA PAGINA</h1>
-        <button onclick="ola()">Ola</button>
-        <img th:src="@{/img/logo.png}" alt="">
-        <ul>
-            <li><a th:href="@{/pagina1}">PAGINA 1</a></li>
-        </ul>
-    </body>
+    <title>Controle Financeiro - Home</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Meu Controle Financeiro</h1>
+    </header>
+
+    <main>
+        <h2>Assuma o Controle das Suas Finanças</h2>
+        <p>Registre receitas, acompanhe despesas e veja seu saldo evoluir com elegância.</p>
+
+        <div class="cta-container">
+            <a th:href="@{/receitas}" class="cta-button cta-receita">
+                <h3>+ Registrar Receita</h3>
+                <p>Entradas, salários e ganhos.</p>
+            </a>
+
+            <a th:href="@{/despesas}" class="cta-button cta-despesa">
+                <h3>- Registrar Despesa</h3>
+                <p>Pagamentos, compras e saídas.</p>
+            </a>
+
+            <a th:href="@{/extrato}" class="cta-button cta-extrato">
+                <h3>= Ver Extrato</h3>
+                <p>Histórico completo e saldo final.</p>
+            </a>
+        </div>
+    </main>
+
+</body>
 </html>
