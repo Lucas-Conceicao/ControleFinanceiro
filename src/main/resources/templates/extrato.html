@@ -22,7 +22,7 @@
             <h2>Histórico</h2>
             <ul>
                 <li th:each="t : ${extrato.historicoGeral}"
-                    th:class="${t instanceof T(bt.com.lucas.ControleFinanceiro.model.Receita) ? 'receita' : 'despesa'}">
+                    th:class="${t.isReceita() ? 'receita' : 'despesa'}">
                     
                     <span th:text="${#dates.format(t.data, 'dd/MM/yyyy')}"></span> —
                     <span th:text="${t.descricao}"></span>:
