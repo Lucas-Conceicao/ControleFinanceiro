@@ -14,10 +14,11 @@ public class Extrato {
         this.totalReceitas = 0;
         this.totalDespesas = 0;
         for (Transacao t : historicoGeral) {
-            if (t.isReceita())
+            if (t instanceof Receita) {
                 totalReceitas += t.getValor();
-            else
+            } else if (t instanceof Despesa) {
                 totalDespesas += t.getValor();
+            }
         }
         this.saldoFinal = totalReceitas - totalDespesas;
     }
